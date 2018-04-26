@@ -4,6 +4,8 @@
 import pygame, sys
 pygame.init()
 
+BackGround = pygame.image.load('4Lsd.gif')
+
 # Define some colours
 WHITE = (255, 255, 255)
 GRAY = (127, 127, 127)
@@ -38,7 +40,7 @@ class Button():
         self.fg = fg  # text color
         self.size = size
 
-        self.font = pygame.font.SysFont(font_name, font_size)
+        self.font = pygame.font.SysFont('freesansbold.ttf', 25)
         self.txt = txt
         self.txt_surf = self.font.render(self.txt, 1, self.fg)
         self.txt_rect = self.txt_surf.get_rect(center=[s//2 for s in self.size])
@@ -143,7 +145,7 @@ while carryOn:
 
     # Clear the screen to white
     screen.fill(PINK)
-
+    screen.blit(BackGround,(0,0))
     # Draw buttons
     if level == 1:
         for button in level1_buttons:
