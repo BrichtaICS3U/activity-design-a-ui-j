@@ -10,9 +10,13 @@ GRAY = (127, 127, 127)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
+NEON = (70, 255, 191)
+VIOLET = (127, 0, 255)
+BLOOD  = (255, 115, 60)
+PINK = (255, 96, 210)
 
 SCREENWIDTH = 400
-SCREENHEIGHT = 380
+SCREENHEIGHT = 400
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
 
@@ -28,7 +32,7 @@ class Button():
        font_name = name of font
        font_size = size of font
     """
-    def __init__(self, txt, location, action, bg=WHITE, fg=BLACK, size=(80, 30), font_name="Segoe Print", font_size=16):
+    def __init__(self, txt, location, action, bg=PINK, fg=BLACK, size=(80, 30), font_name="Segoe Print", font_size=16):
         self.color = bg  # the static (normal) color
         self.bg = bg  # actual background color, can change on mouseover
         self.fg = fg  # text color
@@ -56,7 +60,7 @@ class Button():
         self.bg = self.color
         pos = pygame.mouse.get_pos()
         if self.rect.collidepoint(pos):
-            self.bg = GRAY  # mouseover color
+            self.bg = VIOLET # mouseover color
 
     def call_back(self):
         """Runs a function when clicked"""
@@ -71,7 +75,6 @@ def my_hello_function():
 
 def my_sound_function():
     print('Sound')
-
 
 
 def my_settings_function():
@@ -116,7 +119,7 @@ clock = pygame.time.Clock()
 #create button objects
 button_Hello = Button("Hello", (SCREENWIDTH/2, SCREENHEIGHT/4),my_hello_function)
 button_Previous = Button("Previous", (SCREENWIDTH/2, SCREENHEIGHT*3/4), my_previous_function)
-button_Quit = Button("Quit", (SCREENWIDTH/2, SCREENHEIGHT*3/4), my_quit_function, bg=(50, 200, 20))
+button_Quit = Button("Quit", (SCREENWIDTH/2, SCREENHEIGHT*3/4), my_quit_function, bg=(PINK))
 button_Settings = Button("Settings", (SCREENWIDTH/2, SCREENHEIGHT/2),my_settings_function)
 button_Sound = Button("Sound", (SCREENWIDTH/2, SCREENHEIGHT/4), my_sound_function)
 button_On = Button("ON", (SCREENWIDTH/2, SCREENHEIGHT/3), my_on_function)
@@ -139,7 +142,7 @@ while carryOn:
     # --- Draw code goes here
 
     # Clear the screen to white
-    screen.fill(WHITE)
+    screen.fill(PINK)
 
     # Draw buttons
     if level == 1:

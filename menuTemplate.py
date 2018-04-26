@@ -13,11 +13,14 @@ WHITE = (255, 255, 255)
 GREEN = (0, 200, 0)
 BRIGHT_GREEN = (0, 255, 0)
 RED = (200, 0, 0)
-
+NEON = (70, 255, 191)
+VIOLET = (127, 0, 255)
+BLOOD  = (255, 115, 60)
+PINK = (255, 96, 210)
 # Open a new window
 # The window is defined as (width, height), measured in pixels
-SCREENWIDTH = 800
-SCREENHEIGHT = 600
+SCREENWIDTH = 500
+SCREENHEIGHT = 500
 
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
@@ -27,7 +30,7 @@ pygame.display.set_caption("My Button")
 
 # Define text for title of game
 fontTitle = pygame.font.Font('freesansbold.ttf', 32)
-textSurfaceTitle = fontTitle.render('My Awesome Game!', True, BLACK) 
+textSurfaceTitle = fontTitle.render('Our Awesome Game!', True, WHITE) 
 textRectTitle = textSurfaceTitle.get_rect()
 textRectTitle.center = (200, 150)   # place the centre of the text
 
@@ -55,7 +58,7 @@ while carryOn:
     # --- Draw code goes here
 
     # Clear the screen to white
-    screen.fill(WHITE)
+    screen.fill(NEON)
 
     # Queue shapes to be drawn
     
@@ -66,9 +69,9 @@ while carryOn:
         pygame.draw.rect(screen, RED, (SCREENWIDTH/3-50, SCREENHEIGHT/2, 100, 50))
         print('You pressed the button! You maniac!')
     elif SCREENWIDTH/3-50 < mouse[0] < SCREENWIDTH/3+50 and SCREENHEIGHT/2 < mouse[1] < SCREENHEIGHT/2 + 50:
-        pygame.draw.rect(screen, BRIGHT_GREEN, (SCREENWIDTH/3-50, SCREENHEIGHT/2, 100, 50))
+        pygame.draw.rect(screen, PINK, (SCREENWIDTH/3-50, SCREENHEIGHT/2, 100, 50))
     else:
-        pygame.draw.rect(screen, GREEN, (SCREENWIDTH/3-50, SCREENHEIGHT/2, 100, 50))
+        pygame.draw.rect(screen, VIOLET, (SCREENWIDTH/3-50, SCREENHEIGHT/2, 100, 50))
 
     # Red button
     pygame.draw.rect(screen, RED, (SCREENWIDTH*2/3-50, SCREENHEIGHT/2, 100, 50))
